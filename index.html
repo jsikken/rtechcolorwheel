@@ -13,19 +13,22 @@
         h1 {
             text-align: center;
         }
-		h2 {
+        h2 {
             text-align: center;
-			font: normal;
-			font-size: 8;
+            font: normal;
+            font-size: 8;
         }
         #container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: flex-start;
             padding: 20px;
         }
         #colorWheel {
             display: block;
+            max-width: 100%;
+            height: auto;
         }
         .color-box {
             width: 32px;
@@ -55,18 +58,28 @@
         .palette .color-box {
             margin-right: 5px;
         }
+        @media (max-width: 600px) {
+            #container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .color-section {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <h1><a href="https://roads-technology.nl/"><img src="./logo-rt.png" width="100" height="32" alt="" url="https://roads-technology.nl"/></a>Kleurenwiel </h1>
     <div id="container">
-      <canvas id="colorWheel" width="300" height="300"></canvas>
+        <canvas id="colorWheel" width="300" height="300"></canvas>
         <div class="color-section">
             <label>Hoofdkleur:<br><input type="text" id="mainColor" class="color-input"></label>
             <label>Complementaire kleur:<br><input type="text" id="complementaryColor" class="color-input" readonly></label>
             <label>Analoge kleuren:<br><input type="text" id="analogColor1" class="color-input" readonly></label>
             <input type="text" id="analogColor2" class="color-input" readonly><br>
-			<label>Kleurenpalet:<br></label>
+            <label>Kleurenpalet:<br></label>
             <div class="palette">
                 <div id="mainColorBox" class="color-box"></div>
                 <div id="complementaryColorBox" class="color-box"></div>
@@ -75,14 +88,13 @@
             </div>
         </div>
     </div>
-	<label><center>
-	  <p>Je kunt je eigen hexcode toevoegen bij "Hoofdkleur".</p>
-		<p>Download hieronder de windows versie!</p>
-		<p>Zo kun je ook kleuren pakken van bijvoorbeeld websites, afbeeldingen of zelfs folders ;-).</p>
-		  <p>Druk op de foto om de applicatie te downloaden!</p>
-		<a href="./Roads-Tech-Kleurenwiel-v2.31.zip"><img src="./Roads Technology - Kleurenwiel-v2.2_foto.PNG" width="250" height="277" alt=""/></a>
-</center></label>
-	
-<script src="script.js"></script>
+    <label><center>
+        <p>Je kunt je eigen hexcode toevoegen bij "Hoofdkleur".</p>
+        <p>Download hieronder de windows versie!</p>
+        <p>Zo kun je ook kleuren pakken van bijvoorbeeld websites, afbeeldingen of zelfs folders ;-).</p>
+        <p>Druk op de foto om de applicatie te downloaden!</p>
+        <a href="./Roads-Tech-Kleurenwiel-v2.3.zip"><img src="./Roads Technology - Kleurenwiel-v2.2_foto.PNG" width="250" height="277" alt=""/></a>
+    </center></label>
+    <script src="script.js"></script>
 </body>
 </html>
