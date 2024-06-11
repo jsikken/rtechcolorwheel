@@ -1,109 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Songwriting Companion</title>
+    <title>Roads Technology Kleurenwiel</title>
     <style>
-        .piano-key {
-            display: inline-block;
-            width: 20px;
-            height: 100px;
-            border: 1px solid black;
-            position: relative;
-            margin: 0;
-        }
-        .white-key {
-            background-color: white;
-        }
-        .black-key {
-            background-color: black;
-            width: 12px;
-            height: 60px;
-            position: absolute;
-            left: 15px;
-            z-index: 1;
-        }
-        .highlighted {
-            background-color: rgb(48, 48, 226) !important;
-        }
-        .highlighted .note-label {
-            color: rgb(185, 0, 0) !important;
-        }
-        .note-label {
-            position: absolute;
-            bottom: 5px;
-            left: 2px;
-            font-size: 10px;
-            color: rgb(185, 0, 0) !important;
-        }
-        .trackbar-container {
-            margin-top: 20px;
-        }
-        .piano-roll {
-            position: relative;
-            height: 100px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f1f1f1;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-        }
-        header {
-            background-color: #f1f1f1;
-            color: rgb(59, 59, 59);
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        header h1 {
-            margin: 0;
-        }
         body {
-            background-color: #d8d8d8;
-            text-align: center; /* Center content inside body */
-            padding-top: 60px; /* Space for the fixed header */
-            padding-bottom: 60px; /* Space for the fixed footer */
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
         }
-        .content {
+        h1 {
+            text-align: center;
+        }
+		h2 {
+            text-align: center;
+			font: normal;
+			font-size: 8;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        #colorWheel {
+            display: block;
+        }
+        .color-box {
+            width: 32px;
+            height: 32px;
             display: inline-block;
-            text-align: left; /* Reset text alignment inside content */
+        }
+        .color-input {
+            display: block;
+            margin-top: 5px;
+            width: 100px;
+            padding: 5px;
+            border: none;
+            color: #fff;
+            text-align: center;
+        }
+        .color-section {
+            margin-left: 20px;
+        }
+        .color-section label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .palette {
+            display: flex;
+            margin-top: 10px;
+        }
+        .palette .color-box {
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Sikken's Songwriting Companion</h1>
-    </header>
-    <div class="content">
-        <div>
-            <label for="majorBox">Majors</label>
-            <input type="text" id="majorBox" readonly>
-            <br>
-        </div>
-        <div id="pianoRollMajors" class="piano-roll"></div>
-        <br>
-        <div>
-            <label for="minorBox">Minors</label>
-            <input type="text" id="minorBox" readonly>
-            <br>
-        </div>
-        <div id="pianoRollMinors" class="piano-roll"></div>
-        <br>
-        <div class="trackbar-container">
-            <input type="range" id="trackbar" min="0" max="11" value="0">
+    <h1><a href="https://roads-technology.nl/"><img src="./logo-rt.png" width="100" height="32" alt="" url="https://roads-technology.nl"/></a>Kleurenwiel </h1>
+    <div id="container">
+      <canvas id="colorWheel" width="300" height="300"></canvas>
+        <div class="color-section">
+            <label>Hoofdkleur:<br><input type="text" id="mainColor" class="color-input"></label>
+            <label>Complementaire kleur:<br><input type="text" id="complementaryColor" class="color-input" readonly></label>
+            <label>Analoge kleuren:<br><input type="text" id="analogColor1" class="color-input" readonly></label>
+            <input type="text" id="analogColor2" class="color-input" readonly><br>
+			<label>Kleurenpalet:<br></label>
+            <div class="palette">
+                <div id="mainColorBox" class="color-box"></div>
+                <div id="complementaryColorBox" class="color-box"></div>
+                <div id="analogColorBox1" class="color-box"></div>
+                <div id="analogColorBox2" class="color-box"></div>
+            </div>
         </div>
     </div>
-    <footer>
-        <p>Songwriting Companion © JSikken, 2024</p>
-    </footer>
-    <script src="script.js"></script>
+	<label><center>Je kunt je eigen hexcode toevoegen bij "Hoofdkleur".</center></label>
+	
+<script src="script.js"></script>
 </body>
 </html>
