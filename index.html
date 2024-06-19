@@ -9,7 +9,6 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             color: #333;
-            
         }
         h1 {
             text-align: center;
@@ -59,6 +58,14 @@
         .palette .color-box {
             margin-right: 5px;
         }
+        #infoText {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+        }
         @media (max-width: 600px) {
             #container {
                 flex-direction: column;
@@ -107,15 +114,53 @@
             <br>
             <button id="saveHexCodesBtn">Sla Hexcodes op als TXT</button><br>
             <br>
+            <button id="toggleInfoBtn">Meer weten?</button>
         </div>
     </div>
-    <div id="mainColorBox" style="width: 50px; height: 50px; display: inline-block;"></div>
-    <p id="errorMessage" style="display:none;">EyeDropper API wordt niet ondersteund in deze browser.</p>
-    <br>
-    <br>
+    <div id="infoText">
+        <h2>Complementaire Kleuren</h2>
+        <p><strong>Wat zijn complementaire kleuren?</strong></p>
+        <p>Complementaire kleuren zijn kleuren die recht tegenover elkaar liggen op het kleurenwiel. Ze vormen een sterk contrast en versterken elkaar wanneer ze samen worden gebruikt.</p>
+        <p><strong>Hoe vind je ze?</strong></p>
+        <p>Stel je een rond kleurenwiel voor, met alle kleuren van de regenboog. Als je een lijn recht door het midden van het wiel trekt van één kleur naar de tegenoverliggende kleur, dan heb je een complementair paar gevonden. Bijvoorbeeld:</p>
+        <ul>
+            <li>Rood en groen</li>
+            <li>Blauw en oranje</li>
+            <li>Geel en paars</li>
+        </ul>
+        <p><strong>Waarom zijn ze belangrijk?</strong></p>
+        <p>Ze creëren een visueel effect dat heel levendig en opvallend is. Dit kan nuttig zijn in kunst, design en mode om aandacht te trekken en een dynamisch gevoel te geven.</p>
+        <h2>Analoge Kleuren</h2>
+        <p><strong>Wat zijn analoge kleuren?</strong></p>
+        <p>Analoge kleuren zijn kleuren die naast elkaar liggen op het kleurenwiel. Ze hebben vaak een gemeenschappelijke basiskleur en harmoniseren goed met elkaar.</p>
+        <p><strong>Hoe vind je ze?</strong></p>
+        <p>Kies een kleur op het kleurenwiel, en kijk dan naar de kleuren direct links en rechts ervan. Bijvoorbeeld:</p>
+        <ul>
+            <li>Blauw, blauw-groen en groen</li>
+            <li>Rood, rood-oranje en oranje</li>
+            <li>Geel, geel-groen en groen</li>
+        </ul>
+        <p><strong>Waarom zijn ze belangrijk?</strong></p>
+        <p>Ze creëren een harmonieus en rustig gevoel omdat de kleuren elkaar aanvullen zonder veel contrast. Dit kan prettig zijn in interieurs, kunst en mode waar een meer serene en samenhangende uitstraling gewenst is.</p>
+        <h2>Kort samengevat</h2>
+        <p>Complementaire kleuren: Tegenover elkaar op het kleurenwiel, zorgen voor contrast en levendigheid (bijvoorbeeld rood en groen).</p>
+        <p>Analoge kleuren: Naast elkaar op het kleurenwiel, zorgen voor harmonie en rust (bijvoorbeeld blauw en groen).</p>
+        <p>Ik hoop dat dit helpt om een duidelijk beeld te krijgen van deze kleurconcepten!</p>
+    </div>
     <footer>
         <p>Roads Technology Color Wheel © JSikken, 2024</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("toggleInfoBtn").addEventListener("click", function() {
+            var infoText = document.getElementById("infoText");
+            if (infoText.style.display === "none" || infoText.style.display === "") {
+                infoText.style.display = "block";
+                this.textContent = "Minder weten?";
+            } else {
+                infoText.style.display = "none";
+                this.textContent = "Meer weten?";
+            }
+        });
+    </script>
 </body>
 </html>
