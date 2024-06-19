@@ -5,12 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const centerY = canvas.height / 2;
     const radius = Math.min(centerX, centerY);
     const mainColorInput = document.getElementById('mainColor');
+    const eyeDropperBtn = document.getElementById('eyeDropperBtn');
     const errorMessage = document.getElementById('errorMessage');
 
     // Controleer of de EyeDropper API wordt ondersteund
     if (window.EyeDropper) {
-        // Voeg een click event listener toe aan de input
-        mainColorInput.addEventListener('click', openEyeDropper);
+        // Voeg een click event listener toe aan de knop
+        eyeDropperBtn.addEventListener('click', openEyeDropper);
     } else {
         // Toon een foutmelding als de API niet wordt ondersteund
         errorMessage.style.display = 'block';
