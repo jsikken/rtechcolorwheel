@@ -6,23 +6,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const radius = Math.min(centerX, centerY);
     const mainColorInput = document.getElementById('mainColor');
     const eyeDropperBtn = document.getElementById('eyeDropperBtn');
+    const savePaletteBtn = document.getElementById('savePaletteBtn');
     const errorMessage = document.getElementById('errorMessage');
 
+    // Controleer of de EyeDropper API wordt ondersteund
     if (window.EyeDropper) {
+        // Voeg een click event listener toe aan de knop
         eyeDropperBtn.addEventListener('click', openEyeDropper);
     } else {
+        // Toon een foutmelding als de API niet wordt ondersteund
         errorMessage.style.display = 'block';
     }
 
     async function openEyeDropper() {
         try {
+            // Maak een nieuw EyeDropper object
             const eyeDropper = new EyeDropper();
             
+            // Open de EyeDropper en wacht op de geselecteerde kleur
             const { sRGBHex } = await eyeDropper.open();
             
+            // Zet de geselecteerde kleur in de input als hexcode
             mainColorInput.value = sRGBHex;
             updateColors(sRGBHex);
         } catch (err) {
+            // Behandel eventuele fouten (bijv. als de gebruiker de EyeDropper annuleert)
             console.error(err);
         }
     }
@@ -174,6 +182,30 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             alert("Ongeldige hex-code. Gebruik het formaat #RRGGBB.");
         }
+    });
+
+    savePaletteBtn.addEventListener('click', function() {
+        const paletteCanvas = document.createElement('canvas');
+        paletteCanvas.width = 128;
+        paletteCanvas.height = 32;
+        const paletteCtx = paletteCanvas.getContext('2d');
+
+        const colors = [
+            document.getElementById('mainColor').value,
+            document.getElementById('complementaryColor').value,
+            document.getElementById('analogColor1').value,
+            document.getElementById('analogColor2').value
+        ];
+
+        colors.forEach((color, index) => {
+            paletteCtx.fillStyle = color;
+            paletteCtx.fillRect(index * 32, 0, 32, 32);
+        });
+
+        const link = document.createElement('a');
+        link.download = 'kleurenpalet.png';
+        link.href = paletteCanvas.toDataURL();
+        link.click();
     });
 
     drawColorWheel();
