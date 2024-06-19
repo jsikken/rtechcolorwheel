@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainColorInput = document.getElementById('mainColor');
     const eyeDropperBtn = document.getElementById('eyeDropperBtn');
     const savePaletteBtn = document.getElementById('savePaletteBtn');
+    const saveHexCodesBtn = document.getElementById('saveHexCodesBtn');
     const errorMessage = document.getElementById('errorMessage');
 
     // Controleer of de EyeDropper API wordt ondersteund
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (/^#[0-9A-F]{6}$/i.test(hexColor)) {
             updateColors(hexColor);
         } else {
-            alert("Ongeldige hex-code. Gebruik het formaat #RRGGBB.");
+            //alert("Ongeldige hex-code. Gebruik het formaat #RRGGBB.");
         }
     });
 
@@ -205,6 +206,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const link = document.createElement('a');
         link.download = 'kleurenpalet.png';
         link.href = paletteCanvas.toDataURL();
+        link.click();
+    });
+
+    saveHexCodesBtn.addEventListener('click', function() {
+        const mainColor = document.getElementById('mainColor').value;
+        const complementaryColor = document.getElementById('complementaryColor').value;
+        const analogColor1 = document.getElementById('analogColor1').value;
+        const analogColor2 = document.getElementById('analogColor2').value;
+
+        const textContent = `Hoofdkleur:\n${mainColor}\nComplementaire kleur:\n${complementaryColor}\nAnaloge kleuren:\n${analogColor1}\n${analogColor2}`;
+
+        const blob = new Blob([textContent], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.download = 'kleurenpalet.txt';
+        link.href = window.URL.createObjectURL(blob);
         link.click();
     });
 
