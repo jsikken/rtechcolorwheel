@@ -8,28 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const eyeDropperBtn = document.getElementById('eyeDropperBtn');
     const errorMessage = document.getElementById('errorMessage');
 
-    // Controleer of de EyeDropper API wordt ondersteund
     if (window.EyeDropper) {
-        // Voeg een click event listener toe aan de knop
         eyeDropperBtn.addEventListener('click', openEyeDropper);
     } else {
-        // Toon een foutmelding als de API niet wordt ondersteund
         errorMessage.style.display = 'block';
     }
 
     async function openEyeDropper() {
         try {
-            // Maak een nieuw EyeDropper object
             const eyeDropper = new EyeDropper();
             
-            // Open de EyeDropper en wacht op de geselecteerde kleur
             const { sRGBHex } = await eyeDropper.open();
             
-            // Zet de geselecteerde kleur in de input als hexcode
             mainColorInput.value = sRGBHex;
             updateColors(sRGBHex);
         } catch (err) {
-            // Behandel eventuele fouten (bijv. als de gebruiker de EyeDropper annuleert)
             console.error(err);
         }
     }
