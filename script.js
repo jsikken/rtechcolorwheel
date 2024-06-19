@@ -4,9 +4,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const radius = Math.min(centerX, centerY);
+    const mainColorInput = document.getElementById('mainColor');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Controleer of de EyeDropper API wordt ondersteund
+    if (window.EyeDropper) {
+        // Voeg een click event listener toe aan de input
+        mainColorInput.addEventListener('click', openEyeDropper);
+    } else {
+        // Toon een foutmelding als de API niet wordt ondersteund
+        errorMessage.style.display = 'block';
+    }
+
+    async function openEyeDropper() {
+        try {
+            // Maak een nieuw EyeDropper object
+            const eyeDropper = new EyeDropper();
+            
+            // Open de EyeDropper en wacht op de geselecteerde kleur
+            const { sRGBHex } = await eyeDropper.open();
+            
+            // Zet de geselecteerde kleur in de input als hexcode
+            mainColorInput.value = sRGBHex;
+            updateColors(sRGBHex);
+        } catch (err) {
+            // Behandel eventuele fouten (bijv. als de gebruiker de EyeDropper annuleert)
+            console.error(err);
+        }
+    }
 
     function drawColorWheel() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         const imageData = ctx.createImageData(canvas.width, canvas.height);
         const data = imageData.data;
 
@@ -21,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const hue = angle * 180 / Math.PI;
                     const saturation = distance / radius;
                     const [r, g, b] = hsvToRgb(hue, saturation, 1);
-
                     const index = (y * canvas.width + x) * 4;
                     data[index] = r;
                     data[index + 1] = g;
@@ -77,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const complementaryHue = (hsv.h + 180) % 360;
         const analogHue1 = (hsv.h + 30) % 360;
         const analogHue2 = (hsv.h - 30 + 360) % 360;
-
         const complementaryColor = hsvToHex(complementaryHue, hsv.s, hsv.v);
         const analogColor1 = hsvToHex(analogHue1, hsv.s, hsv.v);
         const analogColor2 = hsvToHex(analogHue2, hsv.s, hsv.v);
@@ -103,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let h, s, v = max;
         let d = max - min;
         s = max === 0 ? 0 : d / max;
+
         if (max === min) {
             h = 0;
         } else {
@@ -113,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             h /= 6;
         }
+
         return { h: h * 360, s: s, v: v };
     }
 
@@ -123,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const p = v * (1 - s);
         const q = v * (1 - f * s);
         const t = v * (1 - (1 - f) * s);
+
         switch (i) {
             case 0: r = v; g = t; b = p; break;
             case 1: r = q; g = v; b = p; break;
@@ -131,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             case 4: r = t; g = p; b = v; break;
             case 5: r = v; g = p; b = q; break;
         }
+
         return rgbToHex(Math.round(r * 255), Math.round(g * 255), Math.round(b * 255));
     }
 
