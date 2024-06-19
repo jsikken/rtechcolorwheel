@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -67,7 +68,7 @@
                 margin-top: 20px;
             }
         }
-		footer {
+        footer {
             text-align: center;
             padding: 10px;
             background-color: #f1f1f1;
@@ -83,7 +84,7 @@
     <div id="container">
         <canvas id="colorWheel" width="300" height="300"></canvas>
         <div class="color-section">
-            <label>Hoofdkleur:<br><input type="text" id="mainColor" class="color-input"></label>
+            <label>Hoofdkleur:<br><input type="text" id="mainColor" class="color-input" placeholder="Klik om kleur te selecteren"></label>
             <label>Complementaire kleur:<br><input type="text" id="complementaryColor" class="color-input" readonly></label>
             <label>Analoge kleuren:<br><input type="text" id="analogColor1" class="color-input" readonly></label>
             <input type="text" id="analogColor2" class="color-input" readonly><br>
@@ -96,22 +97,21 @@
             </div>
         </div>
     </div>
-	 </div>
     <div id="mainColorBox" style="width: 50px; height: 50px; display: inline-block;"></div>
     <p id="errorMessage" style="display:none;">EyeDropper API wordt niet ondersteund in deze browser.</p>
     <label><center>
         <p>Je kunt ook je eigen hexcode toevoegen bij "Hoofdkleur".</p>
-	    <br>
+        <br>
         <p><b>Download</b> hieronder de windows versie!</p>
         <p>Zo kun je ook kleuren pakken van bijvoorbeeld websites, afbeeldingen of zelfs folders ;-).</p>
         <p>Druk op de foto om de applicatie te downloaden!</p>
         <a href="./Roads-Tech-Kleurenwiel-v2.3.zip"><img src="./Roads Technology - Kleurenwiel-v2.2_foto.PNG" width="250" height="277" alt=""/></a>
     </center></label>
-	<br>
-	<br>
-	<br>
-	<br>
-	<footer>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
         <p>Roads Technology Color Wheel © JSikken, 2024</p>
     </footer>
     <script src="script.js"></script>
