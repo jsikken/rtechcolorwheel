@@ -110,6 +110,12 @@
             border-radius: 4px;
         }
 
+        .infocontainerwrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
@@ -135,11 +141,15 @@
             <br>
             <button id="saveHexCodesBtn">Sla Hexcodes op als TXT</button><br>
             <br><br>
-            <label>Meer weten over analoge en complementaire kleuren?</label>
-            <button id="toggleInfoBtn">Meer weten?</button><br>
-            <br>
-            <label>Meer weten over de betekenis van kleuren?</label>
-            <button id="toggleInfoBtn2">Meer weten?</button><br>
+            <div class="infocontainerwrapper">
+                <div id="infocontainer">
+                    <label>Meer weten over analoge en complementaire kleuren?</label>
+                    <button id="toggleInfoBtn">Meer weten?</button><br>
+                    <br>
+                    <label>Meer weten over de betekenis van kleuren?</label>
+                    <button id="toggleInfoBtn2">Meer weten?</button><br>
+                </div>
+            </div>
         </div>
     </div>
     <div id="infoText">
@@ -202,7 +212,6 @@
                 infoText.style.display = "block";
                 this.textContent = "Minder weten?";
                 
-                // Verberg het andere tekstgedeelte en reset de bijbehorende knop
                 infoText2.style.display = "none";
                 toggleInfoBtn2.textContent = "Meer weten?";
             } else {
@@ -220,7 +229,6 @@
                 infoText2.style.display = "block";
                 this.textContent = "Minder weten?";
                 
-                // Verberg het andere tekstgedeelte en reset de bijbehorende knop
                 infoText.style.display = "none";
                 toggleInfoBtn.textContent = "Meer weten?";
             } else {
