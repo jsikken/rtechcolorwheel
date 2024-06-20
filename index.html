@@ -172,9 +172,16 @@
     <script>
         document.getElementById("toggleInfoBtn").addEventListener("click", function() {
             var infoText = document.getElementById("infoText");
+            var infoText2 = document.getElementById("infoText2");
+            var toggleInfoBtn2 = document.getElementById("toggleInfoBtn2");
+
             if (infoText.style.display === "none" || infoText.style.display === "") {
                 infoText.style.display = "block";
                 this.textContent = "Minder weten over analoge en complementaire kleuren?";
+                
+                // Verberg het andere tekstgedeelte en reset de bijbehorende knop
+                infoText2.style.display = "none";
+                toggleInfoBtn2.textContent = "Meer weten over de betekenis van kleuren?";
             } else {
                 infoText.style.display = "none";
                 this.textContent = "Meer weten over analoge en complementaire kleuren?";
@@ -183,9 +190,16 @@
 
         document.getElementById("toggleInfoBtn2").addEventListener("click", function() {
             var infoText2 = document.getElementById("infoText2");
+            var infoText = document.getElementById("infoText");
+            var toggleInfoBtn = document.getElementById("toggleInfoBtn");
+
             if (infoText2.style.display === "none" || infoText2.style.display === "") {
                 infoText2.style.display = "block";
                 this.textContent = "Minder weten over de betekenis van kleuren?";
+                
+                // Verberg het andere tekstgedeelte en reset de bijbehorende knop
+                infoText.style.display = "none";
+                toggleInfoBtn.textContent = "Meer weten over analoge en complementaire kleuren?";
             } else {
                 infoText2.style.display = "none";
                 this.textContent = "Meer weten over de betekenis van kleuren?";
