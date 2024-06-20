@@ -117,9 +117,11 @@
             <br>
             <button id="saveHexCodesBtn">Sla Hexcodes op als TXT</button><br>
             <br>
-            <button id="toggleInfoBtn">Meer weten over analoge en complementaire kleuren?</button><br>
+            <label>Meer weten over analoge en complementaire kleuren?</label>
+            <button id="toggleInfoBtn">Meer weten?</button><br>
             <br>
-            <button id="toggleInfoBtn2">Meer weten over de betekenis van kleuren?</button><br>
+            <label>Meer weten over de betekenis van kleuren?</label>
+            <button id="toggleInfoBtn2">Meer weten?</button><br>
         </div>
     </div>
     <div id="infoText">
@@ -177,14 +179,14 @@
 
             if (infoText.style.display === "none" || infoText.style.display === "") {
                 infoText.style.display = "block";
-                this.textContent = "Minder weten over analoge en complementaire kleuren?";
+                this.textContent = "Minder weten?";
                 
                 // Verberg het andere tekstgedeelte en reset de bijbehorende knop
                 infoText2.style.display = "none";
-                toggleInfoBtn2.textContent = "Meer weten over de betekenis van kleuren?";
+                toggleInfoBtn2.textContent = "Meer weten?";
             } else {
                 infoText.style.display = "none";
-                this.textContent = "Meer weten over analoge en complementaire kleuren?";
+                this.textContent = "Meer weten?";
             }
         });
 
@@ -195,14 +197,14 @@
 
             if (infoText2.style.display === "none" || infoText2.style.display === "") {
                 infoText2.style.display = "block";
-                this.textContent = "Minder weten over de betekenis van kleuren?";
+                this.textContent = "Minder weten?";
                 
                 // Verberg het andere tekstgedeelte en reset de bijbehorende knop
                 infoText.style.display = "none";
-                toggleInfoBtn.textContent = "Meer weten over analoge en complementaire kleuren?";
+                toggleInfoBtn.textContent = "Meer weten?";
             } else {
                 infoText2.style.display = "none";
-                this.textContent = "Meer weten over de betekenis van kleuren?";
+                this.textContent = "Meer weten?";
             }
         });
     </script>
