@@ -58,15 +58,7 @@
         .palette .color-box {
             margin-right: 5px;
         }
-        #infoText {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #dddddd;
-            border-radius: 4px;
-        }
-        #infoText2 {
+        #infoText, #infoText2 {
             display: none;
             margin-top: 20px;
             padding: 20px;
@@ -159,23 +151,21 @@
         <p>Complementaire kleuren: Tegenover elkaar op het kleurenwiel, zorgen voor contrast en levendigheid (bijvoorbeeld rood en groen).</p>
         <p>Analoge kleuren: Naast elkaar op het kleurenwiel, zorgen voor harmonie en rust (bijvoorbeeld blauw en groen).</p>
         <p>Ik hoop dat dit helpt om een duidelijk beeld te krijgen van deze kleurconcepten!</p>
-        <br><br><br><br>
     </div>
-    <br><br><br><br>
-    <div id="infoText2>
+    <div id="infoText2">
         <h2>Betekenis achter de kleuren</h2>
-            <p>Kleurenpsychologie bestudeert de invloed van kleuren op menselijk gedrag, emoties en besluitvorming.</p> 
-            <p>Elke kleur roept specifieke associaties en gevoelens op. Hier zijn enkele voorbeelden:</p>
-            <p><b>Rood:</b> <i>Vaak geassocieerd met energie, passie en opwinding. Rood kan de hartslag verhogen en een gevoel van urgentie creëren, wat het geschikt maakt voor uitverkopen en promoties.</i></p>
-            <p><b>Blauw:</b> <i>Wordt geassocieerd met kalmte, betrouwbaarheid en sereniteit. Blauw kan een gevoel van veiligheid en vertrouwen opwekken, wat het een populaire kleur maakt voor banken en zakelijke diensten.</i></p>
-            <p><b>Geel:</b> <i>Staat voor optimisme, vreugde en energie. Het kan de aandacht trekken en wordt vaak gebruikt in etalages en marketing om een zonnige, opgewekte sfeer te creëren.</i></p>
-            <p><b>Groen:</b> <i> Geassocieerd met natuur, gezondheid en rust. Groen roept gevoelens van evenwicht en vernieuwing op, en wordt vaak gebruikt in producten die verband houden met welzijn en milieuvriendelijkheid.</i></p>
-            <p><b>Paars:</b> <i> Staat voor luxe, creativiteit en spiritualiteit. Paars kan een gevoel van rijkdom en exclusiviteit overbrengen, waardoor het populair is in high-end producten en creatieve industrieën.</i></p>
-            <p><b>Oranje:</b> <i> Geassocieerd met enthousiasme, opwinding en warmte. Oranje kan een gevoel van vitaliteit en speelsheid creëren en wordt vaak gebruikt om impulsaankopen te stimuleren.</i></p>
-            <p><b>Zwart:</b> <i> Wordt geassocieerd met kracht, elegantie en mysterie. Zwart straalt autoriteit en verfijning uit en wordt vaak gebruikt in mode en luxeproducten.</i></p>
-            <p><b>Wit:</b> <i> Staat voor zuiverheid, eenvoud en netheid. Wit kan een gevoel van frisheid en ruimte creëren, en wordt vaak gebruikt in minimalistisch design en gezondheidsproducten.</i></p>
-            <p>De psychologie achter kleuren kan variëren afhankelijk van culturele en persoonlijke verschillen, maar over het algemeen speelt kleur een cruciale rol in hoe we ons voelen en reageren op onze omgeving.</p>
-        </div>
+        <p>Kleurenpsychologie bestudeert de invloed van kleuren op menselijk gedrag, emoties en besluitvorming.</p> 
+        <p>Elke kleur roept specifieke associaties en gevoelens op. Hier zijn enkele voorbeelden:</p>
+        <p><b>Rood:</b> <i>Vaak geassocieerd met energie, passie en opwinding. Rood kan de hartslag verhogen en een gevoel van urgentie creëren, wat het geschikt maakt voor uitverkopen en promoties.</i></p>
+        <p><b>Blauw:</b> <i>Wordt geassocieerd met kalmte, betrouwbaarheid en sereniteit. Blauw kan een gevoel van veiligheid en vertrouwen opwekken, wat het een populaire kleur maakt voor banken en zakelijke diensten.</i></p>
+        <p><b>Geel:</b> <i>Staat voor optimisme, vreugde en energie. Het kan de aandacht trekken en wordt vaak gebruikt in etalages en marketing om een zonnige, opgewekte sfeer te creëren.</i></p>
+        <p><b>Groen:</b> <i> Geassocieerd met natuur, gezondheid en rust. Groen roept gevoelens van evenwicht en vernieuwing op, en wordt vaak gebruikt in producten die verband houden met welzijn en milieuvriendelijkheid.</i></p>
+        <p><b>Paars:</b> <i> Staat voor luxe, creativiteit en spiritualiteit. Paars kan een gevoel van rijkdom en exclusiviteit overbrengen, waardoor het populair is in high-end producten en creatieve industrieën.</i></p>
+        <p><b>Oranje:</b> <i> Geassocieerd met enthousiasme, opwinding en warmte. Oranje kan een gevoel van vitaliteit en speelsheid creëren en wordt vaak gebruikt om impulsaankopen te stimuleren.</i></p>
+        <p><b>Zwart:</b> <i> Wordt geassocieerd met kracht, elegantie en mysterie. Zwart straalt autoriteit en verfijning uit en wordt vaak gebruikt in mode en luxeproducten.</i></p>
+        <p><b>Wit:</b> <i> Staat voor zuiverheid, eenvoud en netheid. Wit kan een gevoel van frisheid en ruimte creëren, en wordt vaak gebruikt in minimalistisch design en gezondheidsproducten.</i></p>
+        <p>De psychologie achter kleuren kan variëren afhankelijk van culturele en persoonlijke verschillen, maar over het algemeen speelt kleur een cruciale rol in hoe we ons voelen en reageren op onze omgeving.</p>
+    </div>
     <footer>
         <p>Roads Technology Color Wheel © JSikken, 2024</p>
     </footer>
@@ -190,8 +180,7 @@
                 this.textContent = "Meer weten over analoge en complementaire kleuren?";
             }
         });
-    </script>
-        <script>
+
         document.getElementById("toggleInfoBtn2").addEventListener("click", function() {
             var infoText2 = document.getElementById("infoText2");
             if (infoText2.style.display === "none" || infoText2.style.display === "") {
