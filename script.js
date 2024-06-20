@@ -99,6 +99,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return { r, g, b };
     }
   
+    function shadeColor(color, percent) {
+      const { r, g, b } = hexToRgb(color);
+      const newR = Math.round(r * percent);
+      const newG = Math.round(g * percent);
+      const newB = Math.round(b * percent);
+      return rgbToHex(newR, newG, newB);
+    }
+  
     function updateColors(hexColor) {
       const mainColor = hexColor;
       const hsv = hexToHsv(mainColor);
@@ -112,6 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const analogColor2 = hsvToHex(analogHue2, hsv.s, hsv.v);
       const analogColor3 = hsvToHex(analogHue3, hsv.s, hsv.v);
       const analogColor4 = hsvToHex(analogHue4, hsv.s, hsv.v);
+      const monochromeColor1 = shadeColor(mainColor, 0.9);
+      const monochromeColor2 = shadeColor(mainColor, 0.7);
+      const monochromeColor3 = shadeColor(mainColor, 0.5);
+      const monochromeColor4 = shadeColor(mainColor, 0.3);
   
       document.getElementById('mainColor').value = mainColor;
       document.getElementById('mainColor').style.backgroundColor = mainColor;
@@ -131,6 +143,18 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('analogColor4').value = analogColor4;
       document.getElementById('analogColor4').style.backgroundColor = analogColor4;
       document.getElementById('analogColorBox4').style.backgroundColor = analogColor4;
+      document.getElementById('monochromeColor1').value = monochromeColor1;
+      document.getElementById('monochromeColor1').style.backgroundColor = monochromeColor1;
+      document.getElementById('monochromeColorBox1').style.backgroundColor = monochromeColor1;
+      document.getElementById('monochromeColor2').value = monochromeColor2;
+      document.getElementById('monochromeColor2').style.backgroundColor = monochromeColor2;
+      document.getElementById('monochromeColorBox2').style.backgroundColor = monochromeColor2;
+      document.getElementById('monochromeColor3').value = monochromeColor3;
+      document.getElementById('monochromeColor3').style.backgroundColor = monochromeColor3;
+      document.getElementById('monochromeColorBox3').style.backgroundColor = monochromeColor3;
+      document.getElementById('monochromeColor4').value = monochromeColor4;
+      document.getElementById('monochromeColor4').style.backgroundColor = monochromeColor4;
+      document.getElementById('monochromeColorBox4').style.backgroundColor = monochromeColor4;
     }
   
     function hexToHsv(hex) {
@@ -195,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     savePaletteBtn.addEventListener('click', function() {
       const paletteCanvas = document.createElement('canvas');
-      paletteCanvas.width = 192;
+      paletteCanvas.width = 320;
       paletteCanvas.height = 32;
       const paletteCtx = paletteCanvas.getContext('2d');
       const colors = [
@@ -204,7 +228,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('analogColor1').value,
         document.getElementById('analogColor2').value,
         document.getElementById('analogColor3').value,
-        document.getElementById('analogColor4').value
+        document.getElementById('analogColor4').value,
+        document.getElementById('monochromeColor1').value,
+        document.getElementById('monochromeColor2').value,
+        document.getElementById('monochromeColor3').value,
+        document.getElementById('monochromeColor4').value
       ];
   
       colors.forEach((color, index) => {
@@ -225,7 +253,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const analogColor2 = document.getElementById('analogColor2').value;
       const analogColor3 = document.getElementById('analogColor3').value;
       const analogColor4 = document.getElementById('analogColor4').value;
-      const textContent = `Hoofdkleur:\n${mainColor}\nComplementaire kleur:\n${complementaryColor}\nAnaloge kleuren:\n${analogColor1}\n${analogColor2}\n${analogColor3}\n${analogColor4}`;
+      const monochromeColor1 = document.getElementById('monochromeColor1').value;
+      const monochromeColor2 = document.getElementById('monochromeColor2').value;
+      const monochromeColor3 = document.getElementById('monochromeColor3').value;
+      const monochromeColor4 = document.getElementById('monochromeColor4').value;
+      const textContent = `Hoofdkleur:\n${mainColor}\nComplementaire kleur:\n${complementaryColor}\nAnaloge kleuren:\n${analogColor1}\n${analogColor2}\n${analogColor3}\n${analogColor4}\nMonochromatische kleuren:\n${monochromeColor1}\n${monochromeColor2}\n${monochromeColor3}\n${monochromeColor4}`;
       const blob = new Blob([textContent], { type: 'text/plain' });
       const link = document.createElement('a');
       link.download = 'kleurenpalet.txt';
